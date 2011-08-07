@@ -10,17 +10,20 @@
 				var correctAnswer = "42"
 				var guessedAnswer = $("#answer").val()
 		
-				var alertBox = $("#alertBox")[0]
 				if(guessedAnswer == correctAnswer){
-					alertBox.style.color = "green"
-					alertBox.innerHTML = "Correct!"
+					setAlert("Correct!","green")
 					
 				}else{
-					alertBox.style.color = "red"
-					alertBox.innerHTML = "Nope!"
+					setAlert("Nope!","red")
 				}
 		
 				return false
+			}
+			
+			function setAlert(text, color){
+				var alertBox = $("#alertBox")[0]
+				alertBox.style.color = color
+				alertBox.innerHTML = text
 			}
 		</script>
 	</head>
