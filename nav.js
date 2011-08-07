@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    addNav("Example1.html", "Alerts")
-    addNav("Example2.html", "Hidden")
+    addNav("Alert.html", "Alerts")
+    addNav("Hide.html", "Hidden")
 })
 
 function addNav(page, label){
