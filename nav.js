@@ -1,3 +1,8 @@
 $(document).ready(function() {
-	$("#nav").append("<a href='Example1-Alert.html'>Alerts</a> | ");
+    addNav("Example1.html", "Alerts")
+    addNav("Example2.html", "Hidden")
 })
+
+function addNav(page, label){
+    $("#nav").append("<a href='"+ page + "'>" + label + "</a> | ")
+}
