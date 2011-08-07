@@ -10,14 +10,15 @@
 				var correctAnswer = "42"
 				var guessedAnswer = $("#answer").val()
 		
-		alert($("#allertBox")[0].innerHTML)
-		
+				var alertBox = $("#alertBox")[0]
 				if(guessedAnswer == correctAnswer){
+					alertBox.innerHTML = "Correct!"
 					
-					$("#allertBox").innerHTML = "Correct!"
 				}else{
-					$("#allertBox").innerHTML = "Nope!"
+					alertBox.style = "text-color:red"
+					alertBox.innerHTML = "Nope!"
 				}
+		
 				return false
 			}
 		</script>
@@ -27,7 +28,7 @@
 		<div id="nav"></div>
 		
 		
-		<div id="allertBox" role="alert">ds</div>
+		<div id="alertBox" role="alert"></div>
 		<form onsubmit="return checkAnswer()">
 			<label id="aLabel" for="answer">What is The Answer to the Ultimate Question of Life, the Universe, and Everything?</label> 
 			<input type="text" id="answer" name="answer" aria-labelledby="aLabel" aria-invalid="false" />
