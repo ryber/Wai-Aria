@@ -12,10 +12,11 @@
 		
 				var alertBox = $("#alertBox")[0]
 				if(guessedAnswer == correctAnswer){
+					alertBox.style.color = "green"
 					alertBox.innerHTML = "Correct!"
 					
 				}else{
-					alertBox.style = "text-color:red"
+					alertBox.style.color = "red"
 					alertBox.innerHTML = "Nope!"
 				}
 		
@@ -26,6 +27,8 @@
 	
 	<body>
 		<div id="nav"></div>
+		<br/>
+		<h1>Alert Role</h1>
 		
 		
 		<div id="alertBox" role="alert"></div>
