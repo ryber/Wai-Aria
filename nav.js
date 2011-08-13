@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    addNav("Alert.html", "Alerts")
-    addNav("Hide.html", "Hidden")
+    addNav("Alert.html")
+    addNav("Expand.html")
 })
 
-function addNav(page, label){
-    $("#nav").append("<a href='"+ page + "'>" + label + "</a> | ")
+function addNav(page){
+    $("#nav").append("<a href='"+ page + "'>" + page.replace(".html","") + "</a> | ")
 }
