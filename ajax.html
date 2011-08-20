@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Ajax Example</title>
+		<script type="text/javascript"  src="lib/jquery-1.6.2.js"></script>
+		<script type="text/javascript"  src="nav.js"></script>
+		
+		<script type="text/javascript">
+	
+		</script>
+	</head>
+	
+	<body role="Application">
+		<div id="nav"></div>
+		<br/>
+		<h1>Ajax</h1>
+		
+		
+		
+		<form id="catalog-widget-input" onsubmit="JavaScript:updateResults()" aria-controls="resultsArea">
+
+            <div class="search-field" >
+              <label for="SearchCriteria" >
+                <geo:loc phrase="Search Term(s)" />
+              </label>:
+
+              <input type="text" name="q" id="theInput" class="text" size="30" maxlength="100"  value="" />
+
+              <span class="buttonwrapper" >
+                <input type="submit" class="button" name="submitbutton"  value="Go"  title="Search for the information you have requested."/>
+              </span>
+
+            </div>
+        </form>
+        
+        <div class="result" id="pleaseWait" role="alert" aria-hidden="true"  style="display:none">
+          <h3 align="center">
+            <img src="/geonext/images/preloader.gif" alt="Loading..." /> 
+          </h3>
+        </div>
+        
+        <div class="result" id="error" role="alert" aria-hidden="true" style="display:none">
+          <h3 >
+            <geo:loc phrase="An error occured while attempting to get your results. Please try again." />
+          </h3>
+        </div>
+		
+	</body>
+</html>
