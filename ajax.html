@@ -3,36 +3,49 @@
 		<title>Ajax Example</title>
 		<script type="text/javascript"  src="lib/jquery-1.6.2.js"></script>
 		<script type="text/javascript"  src="nav.js"></script>
+		<link href="solorized.css" media="screen" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript">
+		
+				
+				
+				
 				function hide(element){
 					element.setAttribute("aria-hidden","true")
 					element.setAttribute("style","display:none")
+					return element
 				}
 		
 				function show(element){
 					element.setAttribute("aria-hidden","false")
 					element.setAttribute("style","")
+					return element
 				}
 		
 				function updateResults(){
-					var results = $('results')
-					var loading = $('pleaseWait')
-					var error = $('error')
-					
+							
+					var results = $('#results')[0]
+					var loading = $('#pleaseWait')[0]
+					var error = $('#error')[0]
 					
 					hide(results)
-					show(loading).delay(800)
+					show(loading)
 					
-					
-					
-					$.ajax({
-					  url: "ajaxdata.js",
-					  context: document.body,
-					  success: function(){
-						$(this).addClass("done");
-					  }
-					});
+					setTimeout(nameAjaxCall, 2000, results, loading)
+								
+					return false
+				}
+				
+				function nameAjaxCall(results, loading){
+					$.getJSON("ajaxdata.js",
+						function(data) {
+							hide(loading)
+							
+							results.innerHTML = data.foo
+							
+							show(results)
+						}
+					)
 				}
 		</script>
 	</head>
@@ -42,17 +55,17 @@
 		<br/>
 		<h1>Ajax</h1>	
 		
-		<form id="catalog-widget-input" onsubmit="JavaScript:updateResults()" aria-controls="resultsArea">
+		<form id="catalog-widget-input" onsubmit="JavaScript:return updateResults()" aria-controls="resultsArea">
 
             <div class="search-field" >
               <label for="SearchCriteria" >
-                <geo:loc phrase="Search Term(s)" />
+                Search Term(s)
               </label>:
 
               <input type="text" name="q" id="theInput" class="text" size="30" maxlength="100"  value="" />
 
               <span class="buttonwrapper" >
-                <input type="submit" class="button" name="submitbutton"  value="Go"  title="Search for the information you have requested."/>
+                <input type="button" class="button" name="submitbutton"  value="Go" onclick="JavaScript:updateResults()"  title="Search for the information you have requested."/>
               </span>
 
             </div>
@@ -60,7 +73,7 @@
         
         <div class="result" id="pleaseWait" role="alert" aria-hidden="true"  style="display:none">
           <h3 align="center">
-            <img src="/geonext/images/preloader.gif" alt="Loading..." /> 
+            <img src="img/ajax-loader.gif" alt="spinny wheel goes round and round." /> Loading...
           </h3>
         </div>
         
