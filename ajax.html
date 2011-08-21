@@ -12,9 +12,7 @@
 	<body role="Application">
 		<div id="nav"></div>
 		<br/>
-		<h1>Ajax</h1>
-		
-		
+		<h1>Ajax</h1>	
 		
 		<form id="catalog-widget-input" onsubmit="JavaScript:updateResults()" aria-controls="resultsArea">
 
@@ -39,9 +37,13 @@
         </div>
         
         <div class="result" id="error" role="alert" aria-hidden="true" style="display:none">
-          <h3 >
-            <geo:loc phrase="An error occured while attempting to get your results. Please try again." />
+          <h3>
+            An error occured while attempting to get your results. Please try again.
           </h3>
+        </div>
+        
+        <div class="widget-data-list" id="results" role="region" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals">
+
         </div>
 		
 	</body>
