@@ -5,7 +5,35 @@
 		<script type="text/javascript"  src="nav.js"></script>
 		
 		<script type="text/javascript">
-	
+				function hide(element){
+					element.setAttribute("aria-hidden","true")
+					element.setAttribute("style","display:none")
+				}
+		
+				function show(element){
+					element.setAttribute("aria-hidden","false")
+					element.setAttribute("style","")
+				}
+		
+				function updateResults(){
+					var results = $('results')
+					var loading = $('pleaseWait')
+					var error = $('error')
+					
+					
+					hide(results)
+					show(loading).delay(800)
+					
+					
+					
+					$.ajax({
+					  url: "ajaxdata.js",
+					  context: document.body,
+					  success: function(){
+						$(this).addClass("done");
+					  }
+					});
+				}
 		</script>
 	</head>
 	
