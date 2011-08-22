@@ -7,9 +7,6 @@
 		
 		<script type="text/javascript">
 		
-				
-				
-				
 				function hide(element){
 					element.setAttribute("aria-hidden","true")
 					element.setAttribute("style","display:none")
@@ -26,7 +23,6 @@
 							
 					var results = $('#results')[0]
 					var loading = $('#pleaseWait')[0]
-					var error = $('#error')[0]
 					
 					hide(results)
 					show(loading)
@@ -37,6 +33,8 @@
 				}
 				
 				function nameAjaxCall(results, loading){
+				
+					try{
 					$.getJSON("ajaxdata.js",
 						function(data) {
 							hide(loading)
@@ -46,6 +44,10 @@
 							show(results)
 						}
 					)
+					}catch(err){
+						hide(results)
+						show($('#error')[0])
+					}
 				}
 		</script>
 	</head>
@@ -59,7 +61,7 @@
 
             <div class="search-field" >
               <label for="SearchCriteria" >
-                Search Term(s)
+                Search
               </label>:
 
               <input type="text" name="q" id="theInput" class="text" size="30" maxlength="100"  value="" />
