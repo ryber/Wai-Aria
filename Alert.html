@@ -14,7 +14,7 @@
 				if(guessedAnswer == correctAnswer){
 					setAlert("Correct!","green")
 					
-				}else{
+				} else {
 					setAlert("Nope!","red")
 				}
 		
@@ -38,7 +38,7 @@
 		<div id="alertBox" role="alert"></div>
 		<form onsubmit="return checkAnswer()">
 			<label id="aLabel" for="answer">What is The Answer to the Ultimate Question of Life, the Universe, and Everything?</label> 
-			<input type="text" id="answer" name="answer" aria-labelledby="aLabel" aria-invalid="false" />
+			<input type="text" id="answer" name="answer" aria-labelledby="aLabel" aria-invalid="false" aria-required="true"  />
 			<input type="submit" id="go"value="Go"/>
 		</form>
 		
